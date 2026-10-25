@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --line-color: #111111; /* Very faint lines for a real book vibe */
+  --text-color: #e2e8f0;
+  --accent-color: #ef4444;
+}
+
+body {
+  margin: 0;
+  font-family: 'DotGothic16', monospace, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  /* Make all UI uncopyable by default */
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: #000000; 
+  padding-top: env(safe-area-inset-top);
+}
+
+.notebook-page {
+  /* Tighter, fainter lines to match small text */
+  background-image: repeating-linear-gradient(transparent, transparent 23px, var(--line-color) 23px, var(--line-color) 24px);
+  line-height: 24px;
+  min-height: 70vh;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-left: 2px solid var(--accent-color);
+  
+  /* ONLY the book text is copyable */
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Sidebar is now an overlay, it will not squish your text */
+.sidebar {
+  width: 250px;
+  max-width: 80%;
+  height: 100vh;
+  background: #050505;
+  border-right: 1px solid #1f2937;
+  color: #e2e8f0;
+  position: fixed;
+  left: -300px;
+  transition: 0.3s ease-in-out;
+  padding: 1rem;
+  z-index: 100;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* Dark overlay behind sidebar */
+.sidebar-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.sidebar-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.home-btn {
+  cursor: pointer;
+  margin-top: 0;
+  color: #e2e8f0;
+  transition: 0.2s;
+}
+
+.home-btn:hover {
+  color: var(--accent-color);
+}
+
+.content-area {
+  padding: 1rem;
+}
+
+/* Slimmer Dropdowns */
+.dropdown-select {
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #1f2937;
+  background-color: #050505;
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.mode-dropdown {
+  margin-bottom: 0.5rem;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.tooltip {
+  cursor: pointer;
+  border-bottom: 2px dashed var(--accent-color);
+  position: relative;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 1.5rem;
+  font-size: 1.2em;
+}
+
+.page-num {
+  cursor: pointer;
+  color: #334155;
+}
+
+.page-num.active {
+  color: var(--accent-color);
+  font-weight: bold;
+}

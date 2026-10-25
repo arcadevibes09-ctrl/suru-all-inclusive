@@ -1,0 +1,11 @@
+{
+  "appId": "com.yourdomain.suru",
+  "appName": "Suru",
+  "webDir": "dist",
+  "plugins": {
+    "StatusBar": {
+      "overlaysWebView": true,
+      "style": "DARK"
+    }
+  }
+}

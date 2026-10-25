@@ -1,0 +1,1013 @@
+/* FILE: src/styles/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@500;700&family=Gaegu:wght@400;700&family=Gloria+Hallelujah&family=Indie+Flower&family=Mali:wght@400;600&family=Patrick+Hand&family=Quicksand:wght@400;600;700&family=Reenie+Beanie&family=Shadows+Into+Light+Two&family=Short+Stack&display=swap');
+@import url('https://fonts.cdnfonts.com/css/paper-daisy');
+@import url('https://fonts.cdnfonts.com/css/biro-script-plus');
+@import url('https://fonts.cdnfonts.com/css/dreaming-outloud-pro');
+
+:root {
+  --bg-base: #000000;
+  --bg-card: #0c0c0c;
+  --bg-elevated: #121212;
+  --bg-btn: #141414;
+  --border-subtle: #1f1f1f;
+  --border-focus: #333333;
+  --text-main: #e5e5e5;
+  --text-secondary: #9a9a9a;
+  --text-muted: #666666;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Global Dark Input Reset (Prevents white browser inputs) */
+input,
+textarea,
+select {
+  background: var(--bg-elevated);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--border-focus);
+  background: #161616;
+}
+
+/* App Shell & Topbar */
+.reimagined-app {
+  min-height: 100vh;
+  background: var(--bg-base);
+  color: var(--text-main);
+}
+
+.minimal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 12px;
+}
+
+.brand-label {
+  font-size: 0.75rem;
+  color: #555555;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.full-page-container {
+  padding: 12px 20px 96px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.full-page-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.full-page-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+  color: var(--text-main);
+}
+
+.full-page-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Universal Small, Non-Sharp Pill Button (Matches 'suru' button) */
+.uni-btn,
+.uni-btn.subtle,
+.custom-select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--bg-btn);
+  color: #8e8e8e;
+  border: 1px solid #222222;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.uni-btn:active,
+.uni-btn.subtle:active,
+.custom-select-trigger:active {
+  transform: scale(0.96);
+}
+
+.uni-btn.active,
+.uni-btn.subtle.active {
+  background: #202020;
+  color: var(--text-main);
+  border-color: #383838;
+}
+
+/* Custom Font Dropdown */
+.custom-select-container {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 170px;
+  max-height: 260px;
+  overflow-y: auto;
+  background: #0e0e0e;
+  border: 1px solid #242424;
+  border-radius: 16px;
+  padding: 6px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85);
+}
+
+.custom-select-option {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 0.8rem;
+  color: #8e8e8e;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.custom-select-option:hover,
+.custom-select-option.active {
+  background: #1c1c1c;
+  color: var(--text-main);
+}
+
+
+/* Universal Small, Non-Sharp Pill Button Rule (Matches 'suru' button) */
+.uni-btn,
+.uni-btn.subtle,
+.custom-select-trigger,
+.faint-btn,
+.note-tool-btn,
+.state-pill,
+.pr-step-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #141414;
+  color: #8e8e8e;
+  border: 1px solid #222222;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.uni-btn:active,
+.uni-btn.subtle:active,
+.custom-select-trigger:active {
+  transform: scale(0.96);
+  background: #1c1c1c;
+  color: #e5e5e5;
+}
+
+.uni-btn.active,
+.uni-btn.subtle.active,
+.state-pill.active {
+  background: #1f1f1f;
+  color: #e5e5e5;
+  border-color: #333333;
+}
+
+/* Custom Font Select Dropdown (Matches 'suru' pill aesthetic) */
+.custom-select-container {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 155px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #101010;
+  border: 1px solid #222222;
+  border-radius: 14px;
+  padding: 5px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75);
+}
+
+.custom-select-option {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  color: #8e8e8e;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.custom-select-option:hover,
+.custom-select-option.active {
+  background: #1c1c1c;
+  color: #e5e5e5;
+}
+
+
+/* Force EVERY element to inherit the selected font */
+*, *::before, *::after, button, input, textarea, select, h1, h2, h3, h4, p, span, div {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000000 !important;
+  color: var(--text-main);
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.reimagined-app {
+  min-height: 100vh;
+  background: #000000;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top, 14px);
+}
+
+/* --- UNIVERSAL BORDERLESS BUTTONS & LOGOS --- */
+.uni-btn {
+  background: var(--bg-btn);
+  border: none !important;
+  outline: none;
+  color: var(--text-main);
+  padding: 7px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+.uni-btn:hover { background: #1f1f1f; }
+.uni-btn.subtle {
+  background: #0f0f0f;
+  color: var(--text-muted);
+  padding: 5px 10px;
+  font-size: 0.7rem;
+}
+.uni-btn.active {
+  background: #242424;
+  color: #ffffff;
+}
+
+/* Bare icon button (no border, no box) */
+.icon-only-btn {
+  background: transparent !important;
+  border: none !important;
+  outline: none;
+  color: var(--text-main);
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.icon-only-btn:hover { opacity: 1; }
+
+/* --- MINIMAL TOP BAR --- */
+.minimal-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  z-index: 40;
+}
+
+/* Hide ALL UI chrome when double-tapped in Notes view */
+.reimagined-app.immersive-active .minimal-topbar,
+.reimagined-app.immersive-active .subtle-mode-wrap,
+.reimagined-app.immersive-active .personal-note-drawer,
+.reimagined-app.immersive-active .floating-nav {
+  display: none !important;
+}
+
+/* --- BIGGER, SQUARER 3D STACK STAGE --- */
+.stack-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px 36px 20px;
+  perspective: 1200px;
+  position: relative;
+}
+
+.stack-Deck {
+  position: relative;
+  width: 315px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: all 0.38s cubic-bezier(0.2, 0.85, 0.3, 1);
+}
+
+.stack-Deck.b2-grid {
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  flex-direction: column;
+  gap: 20px;
+  padding: 12px 0;
+}
+
+/* Unexpanded 3D Stack Squares (Bigger & Squarer) */
+.stack-square {
+  width: 300px;
+  min-height: 300px;
+  border-radius: 28px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.38s cubic-bezier(0.2, 0.85, 0.3, 1);
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.92);
+}
+
+.stack-Deck.stacked-3d .stack-square {
+  position: absolute;
+}
+
+.stack-square.pos-0 {
+  z-index: 20;
+  transform: translate3d(0, 18px, 25px) scale(1);
+}
+
+.stack-square.pos-1 {
+  z-index: 15;
+  transform: translate3d(0, -18px, -20px) scale(0.92);
+  filter: brightness(0.72);
+}
+
+.stack-square.pos-2 {
+  z-index: 10;
+  transform: translate3d(0, -44px, -55px) scale(0.84);
+  filter: brightness(0.5);
+}
+
+.stack-square.pos-hidden {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stack-Deck.b2-grid .stack-square {
+  position: relative;
+  width: 300px;
+  min-height: 260px;
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Monochrome Black Shades with Subtle Height Variations */
+.shade-1 { background: #111111; color: #f0f0f0; min-height: 305px; }
+.shade-2 { background: #111111; color: #f0f0f0; min-height: 305px; }
+.shade-3 { background: #111111; color: #f0f0f0; min-height: 305px; }
+.shade-4 { background: #111111; color: #f0f0f0; min-height: 305px; }
+.shade-5 { background: #111111; color: #f0f0f0; min-height: 305px; }
+
+
+/* --- EXPANDED OUTER SQUARE: Border Only, NO Background --- */
+.stack-Deck.expanded-view {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+.stack-square.is-expanded {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 460px;
+  height: auto !important;
+  transform: none !important;
+  z-index: 50 !important;
+  cursor: default;
+  background: transparent !important; /* Outer square has NO background */
+  border: 1px solid #242424 !important; /* Outer square has border only */
+  box-shadow: none !important;
+  padding: 28px 22px;
+}
+
+.sq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sq-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sq-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.sq-hand-body {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.sq-day {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0 0 8px 0;
+}
+
+.sq-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #bcbcbc;
+}
+
+/* --- INNER SQUARES (Spacious, Background Only, NO Border) --- */
+.expanded-list-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Extra breathing room between topics */
+  max-height: 62vh;
+  overflow-y: auto;
+  padding-right: 2px;
+  scrollbar-width: none;
+}
+.expanded-list-container::-webkit-scrollbar { display: none; }
+
+.expanded-list-item {
+  background: #121212; /* Inner square has background only */
+  border: none !important; /* Inner square has NO border */
+  color: #e5e5e5;
+  border-radius: 18px;
+  padding: 20px 22px; /* Generous internal spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.expanded-list-item:hover {
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+.expanded-item-title {
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.expanded-item-sub {
+  font-size: 0.74rem;
+  color: #666;
+}
+
+/* --- FULL VIEW & ADAPTIVE REFLOWING TEXT --- */
+.full-page-container {
+  padding: 8px 22px 100px 22px;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.full-page-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.full-page-title {
+  font-size: 1.45em;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.full-page-sub {
+  color: var(--text-muted);
+  font-size: 0.78em;
+  margin: 0;
+}
+
+/* Custom Select Dropdown (Borderless Universal Style) */
+.custom-select { position: relative; display: inline-block; }
+.custom-select-trigger {
+  background: var(--bg-btn);
+  border: none !important;
+  color: var(--text-main);
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #141414;
+  border: none;
+  border-radius: 12px;
+  max-height: 230px;
+  overflow-y: auto;
+  z-index: 200;
+  min-width: 145px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.9);
+}
+.custom-select-option {
+  padding: 9px 14px;
+  font-size: 0.78rem;
+  color: #aaa;
+  cursor: pointer;
+}
+.custom-select-option.active {
+  background: #222;
+  color: #fff;
+}
+
+/* --- NOTEBOOK HIGHLIGHTS IN SHADES OF BLACK --- */
+.notebook-page {
+  line-height: 1.75;
+  min-height: 55vh;
+  padding: 4px 0;
+  user-select: text;
+  -webkit-user-select: text;
+  background-image: none !important;
+  border-left: none !important;
+}
+
+.text-content {
+  font-size: 1em;
+  color: var(--text-main);
+}
+
+/* Glossary Words -> Dark Charcoal Pill */
+.highlighted-word {
+  background: #161616;
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: none !important;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.bold-text {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Highlighter {{...}} -> Shade of Black/Charcoal */
+.highlighter {
+  background-color: #141414 !important;
+  color: #d4d4d4 !important;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Definition/Example Box [[[...]]] -> Deep Matte Black Shade */
+.note-box {
+  background: #0d0d0d !important;
+  border: none !important;
+  padding: 16px 18px;
+  border-radius: 14px;
+  margin: 18px 0;
+  color: #cccccc;
+}
+
+.banner-heading {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 24px 0 10px 0;
+  color: #ffffff;
+  border: none !important;
+}
+
+/* Low-profile Subtle Pagination */
+.floating-nav {
+  position: fixed;
+  bottom: 18px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0d0d0d;
+  padding: 4px 10px;
+  border-radius: 10px;
+  z-index: 60;
+}
+.pagination { display: flex; gap: 4px; align-items: center; margin: 0; }
+.page-num {
+  cursor: pointer;
+  color: #444;
+  font-size: 0.75rem;
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+.page-num.active {
+  color: #bcbcbc;
+  background: #181818;
+}
+.next-topic-btn {
+  background: #181818;
+  color: #bcbcbc;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Dedicated Page Note Area */
+.personal-note-drawer {
+  margin-top: 34px;
+  padding-top: 18px;
+}
+.personal-note-textarea {
+  width: 100%;
+  min-height: 140px;
+  background: #0c0c0c;
+  border: none;
+  border-radius: 14px;
+  color: #e0e0e0;
+  padding: 16px;
+  font-size: 0.9em;
+  line-height: 1.6;
+  outline: none;
+  margin-top: 10px;
+}
+
+/* --- ACTIVE GYM VIEW --- */
+.gym-month-heading {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0.5rem 0 1.2rem 0;
+}
+.gym-date-strip {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+.gym-day-pill {
+  width: 44px;
+  height: 52px;
+  border-radius: 14px;
+  border: none;
+  background: #111111;
+  color: #666;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.gym-day-pill.active {
+  background: #222222;
+  color: #ffffff;
+}
+.gym-pr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+.gym-pr-capsule {
+  background: #121212;
+  color: #e5e5e5;
+  border-radius: 18px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gym-pr-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.gym-pr-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gym-pr-badge {
+  background: #080808;
+  color: #fff;
+  min-width: 42px;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.progress-chart-card {
+  background: #0b0b0b;
+  border-radius: 18px;
+  padding: 1.4rem;
+  margin-top: 1rem;
+}
+.progress-svg { width: 100%; height: auto; }
+
+
+/* --- BLOSSOM'S SEAMLESS INLINE FLOW (Home & Notebook) --- */
+
+.her-inline-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: #666;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.her-inline-text {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #d4d4d4;
+  white-space: pre-line;
+}
+
+.her-notebook-body {
+  font-size: 0.94em;
+  line-height: 1.65;
+  color: #d8d8d8;
+  white-space: pre-line;
+}
+/* --- UNBOXED INLINE WHISPER (No Comment Box, Blends into Page Flow) --- */
+.her-whisper-line {
+  margin: 14px 0 18px 0;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  color: #8c8c8c;
+  font-style: italic;
+  font-size: 0.92em;
+  line-height: 1.6;
+  animation: herWhisperFade 0.25s ease;
+}
+
+@keyframes herWhisperFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+@keyframes herFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Real-Time Gym Additions */
+.gym-rest-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d0d0d;
+  border: 1px solid #1f1f1f;
+  border-radius: 14px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gym-summary-strip {
+  display: flex;
+  justify-content: space-around;
+  background: #0f0f0f;
+  border: 1px solid #1c1c1c;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.gym-summary-label {
+  display: block;
+  font-size: 0.62rem;
+  color: #666;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.gym-exercise-card {
+  background: #0f0f0f;
+  border: 1px solid #1e1e1e;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* Tasks & Countdown Timer Additions */
+.task-creator-card {
+  background: #0e0e0e;
+  border: 1px solid #1e1e1e;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.task-main-input {
+  flex: 1;
+  background: #141414;
+  border: 1px solid #242424;
+  border-radius: 999px;
+  padding: 7px 14px;
+  color: #e5e5e5;
+  font-family: inherit;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.task-custom-min-input {
+  width: 82px;
+  background: #141414;
+  border: 1px solid #242424;
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: #e5e5e5;
+  font-family: inherit;
+  font-size: 0.72rem;
+  outline: none;
+}
+
+.task-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-row-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0e0e0e;
+  border: 1px solid #1c1c1c;
+  border-radius: 14px;
+  padding: 10px 12px;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.task-row-card.completed {
+  opacity: 0.6;
+}
+
+.task-row-card.time-up {
+  border-color: #ef4444;
+}
+
+.task-tick-btn {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Personal Notes Additions */
+.note-search-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #121212;
+  border: 1px solid #222;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.note-search-pill input {
+  background: transparent;
+  border: none;
+  color: #e5e5e5;
+  font-family: inherit;
+  font-size: 0.75rem;
+  outline: none;
+  width: 120px;
+}
+
+.glossary-quick-form {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.glossary-quick-form input {
+  background: #181818;
+  border: 1px solid #262626;
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: #e5e5e5;
+  font-family: inherit;
+  font-size: 0.75rem;
+  outline: none;
+}
